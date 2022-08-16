@@ -67,7 +67,7 @@ form .form-inner .form-group {
 }
 
 .form-inner .form-group:focus-within label {
-    color: #FE4880;
+    color: #f23232;
 }
 
 form .form-inner .form-group input {
