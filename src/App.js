@@ -38,6 +38,7 @@ function App() {
     const Logout = () => {
         setUser({ name: "", email: "" });
         setShowForm(false);
+        navigate("/");
     };
     const navigate = useNavigate();
     return (
