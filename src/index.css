@@ -5,19 +5,19 @@
     font-family: 'montserrat', sans-serif;
 }
 
-input, button {
+/* input, button {
     appearance: none;
     background: none;
     border: none;
     outline: none;
-}
+} */
 
 .App {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #53565A;
+    background-color: lightgray;
 }
 
 form {
@@ -34,7 +34,6 @@ form:after {
     right: 5px;
     bottom: 5px;
     z-index: 1;
-    background-image: linear-gradient(to bottom right, #FFCE00, #FE4880);
 }
 
 form .form-inner {
@@ -120,6 +119,32 @@ form .form-inner input[type="submit"]:hover,
     color: #ea0f51;
     font-weight: 700;
 }
+
+  input {
+    display: block;
+    width: 20rem;
+    height: 2rem;
+    padding: 0.5rem;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  button {
+    border: none;
+    padding: 1rem;
+    width: 21.2rem;
+    font-size: 1.2em;
+    border-radius: 0.2rem;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #c5c5c5;
+  }
+  .message {
+    font-size: 1.2em;
+    text-align: center;
+    color: #36a936;
+  }
 
 
 
