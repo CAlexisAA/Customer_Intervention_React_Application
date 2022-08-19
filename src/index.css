@@ -108,9 +108,10 @@ form .form-inner input[type="submit"]:hover,
     padding: 15px 30px;
 }
 
-.welcome h2 {
+/* .welcome h2 {
+    text-align: center;
     color: #888;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 500;
     margin-bottom: 30px;
 }
@@ -118,7 +119,7 @@ form .form-inner input[type="submit"]:hover,
 .welcome h2 span {
     color: #ea0f51;
     font-weight: 700;
-}
+} */
 
   input {
     display: block;
@@ -136,10 +137,12 @@ form .form-inner input[type="submit"]:hover,
     font-size: 1.2em;
     border-radius: 0.2rem;
     cursor: pointer;
-  }
+  } */
+  
   button:hover {
-    background-color: #c5c5c5;
+    background-color: #f60404;
   }
+  
   .message {
     font-size: 1.2em;
     text-align: center;

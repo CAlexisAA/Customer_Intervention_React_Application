@@ -6,7 +6,6 @@ function Intervention() {
     return (
         <div>
             <h2>Create New Intervention</h2>
-            <input type="text" />
             <InterventionForm />
         </div>
     );

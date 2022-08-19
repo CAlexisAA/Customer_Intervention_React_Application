@@ -3,8 +3,30 @@ import LoginForm from "./components/LoginForm";
 import { useNavigate, Routes, Route } from "react-router-dom";
 import Intervention from "./components/Intervention";
 import InterventionForm from "./components/InterventionForm";
+import axios from "axios";
 
-function App() {
+// componentDidMount() {
+//   axios.get ('https://java-api.codeboxxtest.xyz/customers/current')
+//   .then(response => {
+//     console.log(response.data);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+// }
+export default function App() {
+
+  const config = {
+    headers : { Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdXN0b21lcjFAYnVzaW5lc3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9qYXZhLWFwaS5jb2RlYm94eHRlc3QueHl6L2F1dGhlbnRpY2F0ZSJ9.QbJsJ-MZXWieFf_fcAkNWI3S9Skqd-yFVF3S2h-uhfo'}
+  };
+  axios.get ('https://java-api.codeboxxtest.xyz/interventions/', config)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
     const adminUser = {
         email: "customer1@business.com",
         password: "password123",
@@ -48,9 +70,9 @@ function App() {
             </>
             {user.email !== "" ? (
                 <div className="Welcome">
-                    <h2>
+                    {/* <h2>
                         Welcome, <span>{user.name}</span>
-                    </h2>
+                    </h2> */}
                     <button onClick={Logout}>Logout</button>
                     <button onClick={() => navigate("intervention")}>
                         New Intervention
@@ -63,7 +85,8 @@ function App() {
                 <Route path="intervention" element={<Intervention />} />
             </Routes>
         </div>
+        
     );
 }
 
-export default App;
+// export default App;
