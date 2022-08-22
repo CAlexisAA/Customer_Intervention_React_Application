@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "engines" : { 
     "npm" : ">=8.11.0",
-    "node" : ">=16.15.1"
+    "node" : ">=16.15.1",
+    "yarn": "1.19.1"
+
 },
   "private": true,
   "dependencies": {
