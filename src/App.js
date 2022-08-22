@@ -5,15 +5,7 @@ import Intervention from "./components/Intervention";
 import InterventionForm from "./components/InterventionForm";
 import axios from "axios";
 
-// componentDidMount() {
-//   axios.get ('https://java-api.codeboxxtest.xyz/customers/current')
-//   .then(response => {
-//     console.log(response.data);
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-// }
+
 export default function App() {
 
   const config = {
@@ -63,8 +55,26 @@ export default function App() {
         navigate("/");
     };
     const navigate = useNavigate();
+    
+    // render () {
     return (
+
         <div className="App">
+
+          {/* <p> Battery ID / Building Loc / Column ID / Elevator ID / Report / Result / Status</p>
+          {this.state.intervention.interventions?.map(intervention => {
+            return (
+              <div>
+                <p>
+                  {intervention.battery?.id || "null"} / {intervention.building?.address || "null"} / {intervention.column?.id || "null"} /
+                  {intervention.elevator?.serial_number || "null"} / "{intervention.report || "null"}" / "{intervention.result || "null"}" /
+                  "{intervention.status || "null"}"
+                </p>
+              </div>
+            )
+          })} */}
+
+          
             <>
                 <Login show={showLogin} close={handleToggleLogin} />
             </>
@@ -89,4 +99,3 @@ export default function App() {
     );
 }
 
-// export default App;
