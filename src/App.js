@@ -7,17 +7,31 @@ import axios from "axios";
 
 
 export default function App() {
-
+  // const config = {
+  //   headers : { Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdXN0b21lcjFAYnVzaW5lc3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9qYXZhLWFwaS5jb2RlYm94eHRlc3QueHl6L2F1dGhlbnRpY2F0ZSJ9.QbJsJ-MZXWieFf_fcAkNWI3S9Skqd-yFVF3S2h-uhfo'}
+  // };
+  // axios.get ('https://java-api.codeboxxtest.xyz/interventions/', config)
+  // .then(res => {
+  //   console.log(res.data);
+  //   {res.data}
+  // })
+  // .catch(err => {
+  //   console.log(err);
+  // });  
   const config = {
-    headers : { Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdXN0b21lcjFAYnVzaW5lc3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9qYXZhLWFwaS5jb2RlYm94eHRlc3QueHl6L2F1dGhlbnRpY2F0ZSJ9.QbJsJ-MZXWieFf_fcAkNWI3S9Skqd-yFVF3S2h-uhfo'}
-  };
-  axios.get ('https://java-api.codeboxxtest.xyz/interventions/', config)
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+  headers : { Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdXN0b21lcjFAYnVzaW5lc3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9qYXZhLWFwaS5jb2RlYm94eHRlc3QueHl6L2F1dGhlbnRpY2F0ZSJ9.QbJsJ-MZXWieFf_fcAkNWI3S9Skqd-yFVF3S2h-uhfo'}
+  }
+  const [intervention, setIntervention] = useState('')
+  const getIntervention = () => {
+    axios.get('https://java-api.codeboxxtest.xyz/customers/2', config)
+    .then(res => {
+      console.log(res)
+      setIntervention(res)
+    }) 
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
     const adminUser = {
         email: "customer1@business.com",
@@ -32,7 +46,7 @@ export default function App() {
         setShowLogin(!showLogin);
     };
     const Login = (details) => {
-        console.log(details);
+        // console.log(details);
 
         if (
             details.email === adminUser.email &&
@@ -45,14 +59,14 @@ export default function App() {
             });
             setShowForm(true);
         } else {
-            console.log("Details do not match!");
+            // console.log("Details do not match!");
             setError("Please Try Again!");
         }
     };
     const Logout = () => {
         setUser({ name: "", email: "" });
         setShowForm(false);
-        navigate("/");
+        // navigate("/");
     };
     const navigate = useNavigate();
     
@@ -61,20 +75,6 @@ export default function App() {
 
         <div className="App">
 
-          {/* <p> Battery ID / Building Loc / Column ID / Elevator ID / Report / Result / Status</p>
-          {this.state.intervention.interventions?.map(intervention => {
-            return (
-              <div>
-                <p>
-                  {intervention.battery?.id || "null"} / {intervention.building?.address || "null"} / {intervention.column?.id || "null"} /
-                  {intervention.elevator?.serial_number || "null"} / "{intervention.report || "null"}" / "{intervention.result || "null"}" /
-                  "{intervention.status || "null"}"
-                </p>
-              </div>
-            )
-          })} */}
-
-          
             <>
                 <Login show={showLogin} close={handleToggleLogin} />
             </>
@@ -83,10 +83,13 @@ export default function App() {
                     {/* <h2>
                         Welcome, <span>{user.name}</span>
                     </h2> */}
+                    <button onClick={getIntervention}>Intervention </button>
+                    {intervention ? <p>{intervention}</p> : null}
                     <button onClick={Logout}>Logout</button>
                     <button onClick={() => navigate("intervention")}>
                         New Intervention
                     </button>
+                    {/* <p>{res.data}</p> */}
                 </div>
             ) : (
                 <LoginForm Login={Login} error={error} />

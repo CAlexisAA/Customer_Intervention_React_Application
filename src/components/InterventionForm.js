@@ -8,11 +8,14 @@ function InterventionForm() {
     const [columnID, setColumnID] = useState("");
     const [elevatorID, setElevatorID] = useState("");
     const [message, setMessage] = useState("");
+    // const config = {
+    //     headers : { Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdXN0b21lcjFAYnVzaW5lc3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9qYXZhLWFwaS5jb2RlYm94eHRlc3QueHl6L2F1dGhlbnRpY2F0ZSJ9.QbJsJ-MZXWieFf_fcAkNWI3S9Skqd-yFVF3S2h-uhfo'}
+    //     }
 
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let res = await fetch("https://httpbin.org/post", {
+            let res = await fetch("https://java-api.codeboxxtest.xyz/interventions/new", {
                 method: "POST",
                 body: JSON.stringify({
                     customerID: customerID,
